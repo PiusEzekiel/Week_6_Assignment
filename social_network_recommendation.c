@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+Compile the Code: 
+gcc social_network_system.c -o social_network
+
+Run the Program:
+./social_network
+*/
+
 #define MAX_USERS 100
 #define MAX_NAME_LENGTH 50
 
@@ -14,6 +22,8 @@
 #define BLUE "\033[34m"
 #define CYAN "\033[36m"
 #define MAGENTA "\033[35m"
+
+
 
 // Function declaration for printLine
 void printLine(char ch, int length);

@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+Compile the Code: 
+gcc patient_management_system.c -o patient_management
+
+Run the Program:
+./patient_management
+*/
+
+
 #define MAX_PATIENTS 100
 
 // ANSI color codes for styling

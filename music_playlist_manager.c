@@ -176,7 +176,7 @@ int main() {
 
     do {
         printLine('-', 30); // Decorative line
-        printf(BOLD "Music Playlist Manager\n" RESET);
+        printf(BOLD "\nMusic Playlist Manager\n" RESET);
         printLine('*', 30); // Decorative line
         printf("1. Add a song\n");
         printf("2. Display playlist\n");

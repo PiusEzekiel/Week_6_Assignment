@@ -13,7 +13,7 @@
 
 /*
 Compile the code using:
-gcc database.c -o database
+gcc bst_for_database.c -o database
 
 Run the program:
 ./database
@@ -299,22 +299,22 @@ int main() {
 
     do {
         printLine('-', 50);
-        printf(BOLD "Simple Database System\n" RESET);
+        printf(BOLD "\nSimple Database System\n" RESET);
         printLine('*', 50);
-        printf(BLUE "1. Insert New Product\n" RESET);
-        printf(BLUE "2. Search for Product by Name\n" RESET);
-        printf(BLUE "3. Update Product Details\n" RESET);
-        printf(BLUE "4. Display All Products\n" RESET);
-        printf(BLUE "5. Sort Products\n" RESET);
-        printf(BLUE "6. Track Out-of-Stock Products\n" RESET);
-        printf(BLUE "7. Exit\n" RESET);
+        printf("1. Insert New Product\n");
+        printf("2. Search for Product by Name\n");
+        printf("3. Update Product Details\n");
+        printf("4. Display All Products\n");
+        printf("5. Sort Products\n");
+        printf("6. Track Out-of-Stock Products\n");
+        printf("7. Exit\n" );
         printLine('-', 50);
-        printf("Enter your choice: ");
+        printf(BLUE "Enter your choice: " RESET);
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
-    printf("Enter Product ID: ");
+    printf(BLUE "Enter Product ID: " RESET);
     scanf(" %[^\n]", name); // Use name variable for input validation
     if (!isValidInt(name)) {
         printf(RED "Invalid ID. Please enter a valid number.\n" RESET);
@@ -330,7 +330,7 @@ int main() {
 
     // Use a different variable for name input
     char productName[100]; // Separate variable for product name
-    printf("Enter Product Name: ");
+    printf(BLUE "Enter Product Name: " RESET);
     scanf(" %[^\n]", productName);
 
     // Check for uniqueness of name
@@ -340,7 +340,7 @@ int main() {
     }
 
     // Validate and get price
-    printf("Enter Product Price: ");
+    printf(BLUE"Enter Product Price: "RESET);
     scanf(" %[^\n]", name); // Reuse name for price input
     if (!isValidFloat(name)) {
         printf(RED "Invalid price. Please enter a valid number.\n" RESET);
@@ -349,7 +349,7 @@ int main() {
     price = atof(name);
 
     // Validate and get quantity
-    printf("Enter Product Quantity: ");
+    printf(BLUE "Enter Product Quantity: " RESET);
     scanf(" %[^\n]", name); // Reuse name for quantity input
     if (!isValidInt(name)) {
         printf(RED "Invalid quantity. Please enter a valid number.\n" RESET);
@@ -362,7 +362,7 @@ int main() {
     printf(GREEN "Product added: %s (ID: %d)\n" RESET, productName, id);
     break;
             case 2:
-                printf("Enter Product Name to Search: ");
+                printf(BLUE"Enter Product Name to Search: "RESET);
                 scanf(" %[^\n]", name);
                 Product* foundProduct = searchProduct(root, name);
                 if (foundProduct != NULL) {
@@ -373,7 +373,7 @@ int main() {
                 }
                 break;
             case 3:
-                printf("Enter Product Name to Update: ");
+                printf(BLUE"Enter Product Name to Update: "RESET);
                 scanf(" %[^\n]", name);
                 updateProduct(root, name);
                 break;
@@ -381,19 +381,19 @@ int main() {
                 if (root == NULL) {
                     printf(RED "No products available to display.\n" RESET);
                 } else {
-                    printf("\n| %-8s | %-20s | %-10s | %-10s |\n", "Item ID", "Item Name", "Price", "Quantity");
+                    printf(CYAN "\n| %-8s | %-20s | %-10s | %-10s |\n", "Item ID", "Item Name", "Price", "Quantity" RESET);
                     printLine('-', 65);
                     displayProducts(root);
                     printLine('-', 65);
                 }
                 break;
             case 5:
-                printf("Choose sorting option:\n");
+                printf(BOLD "Choose sorting option:\n" RESET);
                 printf("1. Sort by ID\n");
                 printf("2. Sort by Name\n");
                 printf("3. Sort by Price\n");
                 printf("4. Sort by Quantity\n");
-                printf("Enter your choice: ");
+                printf(BLUE "Enter your choice: " RESET);
                 int sortChoice;
                 scanf("%d", &sortChoice);
                 displaySortedProducts(root, sortChoice);
